@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = Model.Name;
+}
+
+@model Processor
+<div class="wrapper">
+    <!-- Breadcrumb Start -->
+    <div class="breadcrumb-area ptb-60 ptb-sm-30">
+        <div class="container">
+            <div class="breadcrumb">
+                <ul>
+                    <li><a asp-controller="Home" asp-action="Index">Главная страница</a></li>
+                    <li><a asp-controller="Catalog" asp-action="Index">Каталог</a></li>
+                    <li><a asp-controller="CPU" asp-action="List">Процессоры</a></li>
+                    <li class="active"><a asp-controller="CPU" asp-action="Item" asp-route-Id="@Model.Id">@Model.Name</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Container End -->
+    </div>
+    <!-- Breadcrumb End -->
+    <!-- Product Thumbnail Start -->
+    <div class="main-product-thumbnail pb-60">
+        <div class="container">
+            <div class="row">
+                <!-- Main Thumbnail Image Start -->
+                <div class="col-lg-3">
+                    <!-- Thumbnail Large Image start -->
+                    <div class="tab-content">
+                        <div id="thumb1" class="tab-pane active">
+                            <img src="@Model.Image" alt="product-view">
+                        </div>
+                    </div>
+                    <!-- Thumbnail Large Image End -->
+                </div>
+                <!-- Main Thumbnail Image End -->
+                <!-- Thumbnail Description Start -->
+                <div class="col-lg-7">
+                    <div class="thubnail-desc fix">
+                        <h3 class="product-header">@Model.Name</h3>
+                        <div class="pro-price mb-10">
+                            <p><span class="price">@Model.Cost</span></p>
+                        </div>
+                        <div class="box-quantity">
+                            <form action="#">
+                                <input class="number" id="numeric" type="number" min="1" value="1">
+                                <a class="add-cart" asp-controller="Basket" asp-action="AddToCart" asp-route-idProductRange="@Model.ProductRangeId" asp-route-id="@Model.Id">Добавить в корзину</a>
+                            </form>
+                        </div>
+                        <p class="ptb-20">@Model.Description</p>
+                    </div>
+                </div>
+                <!-- Thumbnail Description End -->
+            </div>
+            <!-- Row End -->
+        </div>
+        <!-- Container End -->
+    </div>
+    <!-- Product Thumbnail End -->
+    <!-- Product Thumbnail Description Start -->
+    <div class="thumnail-desc pb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul class="main-thumb-desc nav">
+                        <li><a class="active" data-toggle="tab" href="#dtail">Детали</a></li>
+                    </ul>
+                    <!-- Product Thumbnail Tab Content Start -->
+                    <div class="tab-content thumb-content border-default">
+                        <div id="dtail" class="tab-pane in active">
+                            <ul class="tab-list-item">
+                                <li> Дата выхода: @Model.MarketEntryDate</li>
+                                <li> Сокет: @Model.Socket</li>
+                                <li> Количество ядер: @Model.NumberCores</li>
+                                <li> Количество потоков: @Model.MaximumNumberThreads</li>
+                                <li> Базовая частота: @Model.Baseclock</li>
+                                <li> Турбо частота: @Model.MaximumFrequency</li>
+                                <li> L2 кэш: @Model.L2cache</li>
+                                <li> L3 кэш: @Model.L3cache</li>
+                                <li> Поддержка памяти: @Model.MemorySupport</li>
+                                <li> Количество каналов памяти: @Model.NumberOfChannels</li>
+                                <li> Макс. частота памяти: @Model.MaxMemoryFrequency</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Product Thumbnail Tab Content End -->
+                </div>
+            </div>
+            <!-- Row End -->
+        </div>
+        <!-- Container End -->
+    </div>
+    <!-- Product Thumbnail Description End -->
+</div>
+

@@ -1,0 +1,100 @@
+﻿@using WebMarket.ViewModels.MB
+
+@{
+    ViewBag.Title = "Материнские платы";
+}
+
+<div class="wrapper">
+    <!-- Breadcrumb Start -->
+    <div class="breadcrumb-area ptb-60 ptb-sm-30">
+        <div class="container">
+            <div class="breadcrumb">
+                <ul>
+                    <li><a asp-controller="Home" asp-action="Index">Главная страница</a></li>
+                    <li><a asp-controller="Catalog" asp-action="Index">Каталог</a></li>
+                    <li class="active"><a asp-controller="MB" asp-action="List">Материнские платы</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Container End -->
+    </div>
+    <!-- Breadcrumb End -->
+    <!-- Shop Page Start -->
+    <div class="main-shop-page pb-60">
+        <div class="container">
+            <!-- Row End -->
+            <div class="row">
+                <!-- Product Categorie List Start -->
+                <div class="col-lg-12 order-lg-2">
+                    <!-- Grid & List View Start -->
+                    <div class="grid-list-top border-default universal-padding fix mb-30">
+                        <div class="grid-list-view f-left">
+                            <ul class="list-inline nav">
+                                <li><a class="active" data-toggle="tab" href="#list-view"><i class="fa fa-list-ul"></i></a></li>
+                                <li><span class="grid-item-list"> Items 1-12 of 13</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Grid & List View End -->
+                    <div class="main-categorie">
+                        <div class="tab-content fix">
+                            <div id="list-view" class="tab-pane active">
+                                @{
+                                    foreach (var mb in Model.GetAllMB)
+                                    {
+
+                                        <!-- Single Product Start -->
+                                        <div class="single-product">
+                                            <!-- Product Image Start -->
+                                            <div class="pro-img">
+                                                <a asp-controller="MB" asp-action="Item" asp-route-Id="@mb.Id">
+                                                    <img class="primary-img" src="@mb.Image" alt="@mb.Name">
+                                                </a>
+                                            </div>
+                                            <!-- Product Image End -->
+                                            <!-- Product Content Start -->
+                                            <div class="pro-content">
+                                                <h4><a asp-controller="MB" asp-action="Item" asp-route-Id="@mb.Id">@mb.Name</a></h4>
+                                                <p><span class="price">@mb.Cost.ToString("c")</span></p>
+                                                <p>@mb.Description</p>
+                                                <div class="pro-actions">
+                                                    <div class="actions-secondary">
+                                                        <a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
+                                                        <a class="add-cart" asp-controller="Basket" asp-action="AddToCart" asp-route-idProductRange="@mb.ProductRangeId" asp-route-id="@mb.Id" data-toggle="tooltip" title="Добавить в корзину">Добавить в корзину</a>
+                                                        <a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Product Content End -->
+                                        </div>
+
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Grid & List Main Area End -->
+                    <div class="pagination-box fix">
+                        <ul class="blog-pagination ">
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                        </ul>
+                        <div class="toolbar-sorter-footer">
+                            <label>show</label>
+                            <select class="sorter" name="sorter">
+                                <option value="Position" selected="selected">12</option>
+                                <option value="Product Name">15</option>
+                                <option value="Price">30</option>
+                            </select>
+                            <span>per page</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- product Categorie List End -->
+        </div>
+        <!-- Row End -->
+    </div>
+    <!-- Container End -->
+</div>

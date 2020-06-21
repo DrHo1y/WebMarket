@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Каталог товаров";
+}
+<div class="breadcrumb-area ptb-60 ptb-sm-30">
+    <div class="container">
+        <div class="breadcrumb">
+            <ul>
+                <li><a asp-controller="Home" asp-action="Index">Главная страница</a></li>
+                <li class="active"><a asp-controller="Catalog" asp-action="Index">Каталог</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Container End -->
+</div>
+<!-- Breadcrumb End -->
+<!-- Blog Area Start -->
+<div class="blog-page pb-60">
+    <div class="container">
+        <!-- Row End -->
+        <div class="row">
+            <!-- Single Blog Start -->
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-blog">
+                    <div class="blog-img">
+                        <a asp-controller="CPU" asp-action="List"><img src="~/img/CPU/amd.jpeg" alt="Процессоры"></a>
+                    </div>
+                    <div class="blog-content">
+                        <h4 class="blog-title"><a asp-controller="CPU" asp-action="List">Процессоры</a></h4>
+                    </div>
+                </div>
+            </div>
+            <!-- Single Blog End -->
+            <!-- Single Blog Start -->
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-blog">
+                    <div class="blog-img">
+                        <a asp-controller="GPU" asp-action="List"><img src="~/img/GPU/GigabyteGTX1660S.jpeg" alt="Видеокарты"></a>
+                    </div>
+                    <div class="blog-content">
+                        <h4 class="blog-title"><a asp-controller="GPU" asp-action="List">Видеокарты</a></h4>
+                    </div>
+                </div>
+            </div>
+            <!-- Single Blog End -->
+            <!-- Single Blog Start -->
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-blog">
+                    <div class="blog-img">
+                        <a asp-controller="MB" asp-action="List"><img src="img/MB/GigabyteB450MDS3H.jpeg" alt="Материнские платы"></a>
+                    </div>
+                    <div class="blog-content">
+                        <h4 class="blog-title"><a asp-controller="MB" asp-action="List">Материнские платы</a></h4>
+                    </div>
+                </div>
+            </div>
+            <!-- Single Blog End -->
+        </div>
+    </div>
+    <!-- Container End -->
+</div>
+<!-- Blog Area End -->

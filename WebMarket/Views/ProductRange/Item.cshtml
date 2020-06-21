@@ -1,0 +1,10 @@
+﻿@using WebMarket.ViewModels.PRange
+@{
+    var pRange = Model.GetPRange;
+    <div>
+        <p>-----------</p>
+        <p>Ид: @pRange.Id</p>
+        <p>Артикул: @pRange.VendorCode</p>
+        <p>-----------</p>
+    </div>
+}

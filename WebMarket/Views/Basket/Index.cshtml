@@ -1,0 +1,18 @@
+﻿@model BasketIndexViewModel
+
+@{
+    ViewBag.Title = "Корзина";
+}
+
+<div>
+    @foreach (var el in Model.shopCart.Products)
+    {
+        <div>
+            <img src="@el.Image" alt="@el.Name" />
+            <p>@el.Name</p>
+            <p>@el.Description</p>
+            <p>@el.Cost.ToString("c")</p>
+        </div>
+    }
+    <a asp-controller="Order" asp-action="Checkout">Оплатить</a>
+</div>

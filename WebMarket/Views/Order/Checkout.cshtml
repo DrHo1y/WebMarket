@@ -1,0 +1,39 @@
+﻿@model Order
+
+@{
+    ViewBag.Title = "Оформление заказа";
+}
+
+<div>
+    <h3>Оформление заказа</h3>
+    <form asp-action="Checkout" method="post">
+        <div>
+            <label asp-for="Name"></label>
+            <div>
+                <input asp-for="Name" />
+                <span asp-validation-for="Name"></span>
+            </div>
+            <label asp-for="Surname"></label>
+            <div>
+                <input asp-for="Surname" />
+                <span asp-validation-for="Surname"></span>
+            </div>
+            <label asp-for="Adress"></label>
+            <div>
+                <input asp-for="Adress" />
+                <span asp-validation-for="Adress"></span>
+            </div>
+            <label asp-for="Phone"></label>
+            <div>
+                <input asp-for="Phone" />
+                <span asp-validation-for="Phone"></span>
+            </div>
+            <label asp-for="Email"></label>
+            <div>
+                <input asp-for="Email" />
+                <span asp-validation-for="Email"></span>
+            </div>
+        </div>
+        <input type="submit" value="Завершить Заказ" />
+    </form>
+</div>
