@@ -32,5 +32,10 @@ namespace WebMarket.Controllers
             _Cart.AddToCart(idProductRange, id);
             return RedirectToAction("Index");
         }
+        public RedirectToActionResult DeleteProductItem(int Id)
+        {
+            _Cart.DeleteProductItem(Id);
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -36,7 +36,7 @@
                                             <td class="product-name"><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@el.Name</font></font></a></td>
                                             <td class="product-name"><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@el.Description</font></font></a></td>
                                             <td class="product-subtotal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@el.Cost.ToString("c")</font></font></td>
-                                            <td class="product-remove"> <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                            <td class="product-remove"> <a asp-controller="Basket" asp-action="DeleteProductItem" asp-route-Id="@el.Id"><i class="fa fa-times" aria-hidden="true"></i></a></td>
                                         </tr>
                                     }
 

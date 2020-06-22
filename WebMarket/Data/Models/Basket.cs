@@ -16,13 +16,12 @@ namespace WebMarket.Data.Models
         public string StrId { set; get; }
         public virtual List<ProductItem> Products { set; get; }
         public static Basket GetCart(IServiceProvider services)
-         {
+        {
             ISession session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
             var context = services.GetService<AppDBContent>();
             string CartId = session.GetString("CartId") ?? Guid.NewGuid().ToString();
             session.SetString("CartId", CartId);
             return new Basket(context) { StrId = CartId};
-        
         }
         public void AddToCart(int product, int id)
         {
@@ -77,6 +76,13 @@ namespace WebMarket.Data.Models
             {
 
             }
+            appDBContent.SaveChanges();
+        }
+
+        public void DeleteProductItem(int Id)
+        {
+            var obj = appDBContent.ProductItem.Where(c => c.Id == Id).First();
+            appDBContent.Remove(obj);
             appDBContent.SaveChanges();
         }
         public List<ProductItem> GetShopItems()

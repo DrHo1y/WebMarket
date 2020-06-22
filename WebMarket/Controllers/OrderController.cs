@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using WebMarket.Data;
 using WebMarket.Data.Interfaces;
 using WebMarket.Data.Models;
+using WebMarket.ViewModels.Cart;
 
 namespace WebMarket.Controllers
 {

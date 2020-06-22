@@ -1,39 +1,97 @@
-﻿@model Order
-
+﻿@model Order 
 @{
     ViewBag.Title = "Оформление заказа";
 }
 
-<div>
-    <h3>Оформление заказа</h3>
-    <form asp-action="Checkout" method="post">
-        <div>
-            <label asp-for="Name"></label>
-            <div>
-                <input asp-for="Name" />
-                <span asp-validation-for="Name"></span>
-            </div>
-            <label asp-for="Surname"></label>
-            <div>
-                <input asp-for="Surname" />
-                <span asp-validation-for="Surname"></span>
-            </div>
-            <label asp-for="Adress"></label>
-            <div>
-                <input asp-for="Adress" />
-                <span asp-validation-for="Adress"></span>
-            </div>
-            <label asp-for="Phone"></label>
-            <div>
-                <input asp-for="Phone" />
-                <span asp-validation-for="Phone"></span>
-            </div>
-            <label asp-for="Email"></label>
-            <div>
-                <input asp-for="Email" />
-                <span asp-validation-for="Email"></span>
-            </div>
+
+<div class="breadcrumb-area pt-60 pb-55 pt-sm-30 pb-sm-20">
+    <div class="container">
+        <div class="breadcrumb">
+            <ul>
+                <li><a asp-controller="Home" asp-action="Index"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Главная страница</font></font></a></li>
+                <li class="active"><a asp-controller="Order" asp-action="Checkout"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Оформить заказ</font></font></a></li>
+            </ul>
         </div>
-        <input type="submit" value="Завершить Заказ" />
-    </form>
+    </div>
+    <!-- Container End -->
+</div>
+
+<div class="checkout-area pt-30  pb-60">
+    <div class="container">
+        <form>
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="checkbox-form">
+                        <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Платежные реквизиты</font></font></h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="checkout-form-list">
+                                    <label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Имя</font></font><span class="required"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*</font></font></span></label>
+                                    <input asp-for="Name" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="checkout-form-list mb-30">
+                                    <label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Фамилия </font></font><span class="required"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*</font></font></span></label>
+                                    <input asp-for="Surname" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="checkout-form-list">
+                                    <label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Адрес </font></font><span class="required"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*</font></font></span></label>
+                                    <input asp-for="Adress" placeholder="адрес улицы">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="checkout-form-list mb-30">
+                                    <label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Адрес электронной почты </font></font><span class="required"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*</font></font></span></label>
+                                    <input asp-for="Email" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="checkout-form-list mb-30">
+                                    <label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Телефон</font></font><span class="required"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*</font></font></span></label>
+                                    <input asp-for="Phone" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="your-order">
+                        <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Заказ</font></font></h3>
+                        
+                        <div class="payment-method">
+                            <div class="payment-accordion">
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    <font style="vertical-align: inherit;">
+                                                        <font style="vertical-align: inherit;">
+                                                            Банковский перевод
+                                                        </font>
+                                                    </font>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse  in show" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body">
+                                                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Внесите платеж прямо на наш банковский счет. </font><font style="vertical-align: inherit;">Пожалуйста, используйте ваш идентификатор заказа в качестве ссылки для оплаты. </font><font style="vertical-align: inherit;">Ваш заказ не будет отправлен, пока средства не будут очищены на нашем счете.</font></font></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="order-button-payment">
+                                    <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><input type="submit" value="Разместить заказ"></font></font>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
