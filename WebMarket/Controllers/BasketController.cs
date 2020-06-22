@@ -12,7 +12,6 @@ namespace WebMarket.Controllers
     public class BasketController : Controller
     {
         private readonly Basket _Cart;
-
         public BasketController(Basket cart)
         {
             _Cart = cart;
