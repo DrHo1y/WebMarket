@@ -32,7 +32,6 @@ namespace WebMarket.Data.Models
                 appDBContent.ProductItem.Add(
                     new ProductItem
                     {
-                        //BasketId = appDBContent.Basket.Where(c => c.Id == StrId).First().StrId,
                         Image = obj.Image,
                         Name = obj.Name,
                         Description = obj.Description,
@@ -50,7 +49,6 @@ namespace WebMarket.Data.Models
                 appDBContent.ProductItem.Add(
                     new ProductItem
                     {
-                        //BasketId = appDBContent.Basket.Where(c => c.Id == StrId).First().StrId,
                         Image = obj.Image,
                         Name = obj.Name,
                         Description = obj.Description,
@@ -68,7 +66,6 @@ namespace WebMarket.Data.Models
                 appDBContent.ProductItem.Add(
                     new ProductItem
                     {
-                        //BasketId = appDBContent.Basket.Where(c => c.Id == StrId).First().StrId,
                         Image = obj.Image,
                         Name = obj.Name,
                         Description = obj.Description,

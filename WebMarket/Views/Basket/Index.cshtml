@@ -2,17 +2,84 @@
 
 @{
     ViewBag.Title = "Корзина";
+    var allCost = 0;
 }
 
-<div>
-    @foreach (var el in Model.shopCart.Products)
-    {
-        <div>
-            <img src="@el.Image" alt="@el.Name" />
-            <p>@el.Name</p>
-            <p>@el.Description</p>
-            <p>@el.Cost.ToString("c")</p>
+    <div class="cart-main-area pb-80 pb-sm-50">
+        <div class="container">
+            <h2 class="text-capitalize sub-heading"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Корзина</font></font></h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Form Start -->
+                    <form action="#">
+                        <!-- Table Content Start -->
+                        <div class="table-content table-responsive mb-50">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="product-thumbnail"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Картинка</font></font></th>
+                                        <th class="product-name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Товар</font></font></th>
+                                        <th class="product-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Описание</font></font></th>
+                                        <th class="product-subtotal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Цена</font></font></th>
+                                        <th class="product-remove"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">удалить</font></font></th>
+                                    </tr>
+                                </thead>
+                                <!---->
+                                <tbody>
+                                    @foreach (var el in Model.shopCart.Products)
+                                    {
+                                        allCost += el.Cost;
+                                        <tr>
+                                            <td class="product-thumbnail">
+                                                <a href="#"><img src="@el.Image" alt="@el.Name"></a>
+                                            </td>
+                                            <td class="product-name"><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@el.Name</font></font></a></td>
+                                            <td class="product-name"><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@el.Description</font></font></a></td>
+                                            <td class="product-subtotal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@el.Cost.ToString("c")</font></font></td>
+                                            <td class="product-remove"> <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Table Content Start -->
+                        <div class="row">
+                            <!-- Cart Button Start -->
+                            <div class="col-lg-8 col-md-7">
+                                <div class="buttons-cart">
+                                    <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><input type="submit" value="Обновить корзину"></font></font>
+                                    <a asp-controller="Catalog" asp-action="Index"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Продолжить покупки</font></font></a>
+                                </div>
+                            </div>
+                            <!-- Cart Button Start -->
+                            <!-- Cart Totals Start -->
+                            <div class="col-lg-4 col-md-12">
+                                <div class="cart_totals">
+                                    <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Итоги корзины</font></font></h2>
+                                    <br>
+                                    <table>
+                                        <tbody>
+                                            <tr class="order-total">
+                                                <th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Общее количество</font></font></th>
+                                                <td>
+                                                    <strong><span class="amount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@allCost.ToString("c")</font></font></span></strong>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="wc-proceed-to-checkout">
+                                        <a asp-controller="Order" asp-action="Checkout"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Перейти к оформлению заказа</font></font></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Cart Totals End -->
+                        </div>
+                        <!-- Row End -->
+                    </form>
+                    <!-- Form End -->
+                </div>
+            </div>
+            <!-- Row End -->
         </div>
-    }
-    <a asp-controller="Order" asp-action="Checkout">Оплатить</a>
-</div>
+    </div>
