@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebMarket.Controllers;
 using WebMarket.Data;
 using WebMarket.Data.Interfaces;
 using WebMarket.Data.Mocks;

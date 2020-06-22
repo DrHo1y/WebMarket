@@ -22,13 +22,14 @@ namespace WebMarket.Data.Repository
         {
             order.OrderTime = DateTime.Now;
             appDBContent.Order.Add(order);
+            appDBContent.SaveChanges();
             var items = basket.Products;
             foreach (var el in items)
             {
                 var orderDetail = new OrderDetail()
                 {
                     Price = el.Cost,
-                    //OrderId = order.Id,
+                    OrderId = order.Id,
                     VendorCode = appDBContent.ProductRange.Where(x => x.Id == el.IdProduct).FirstOrDefault().VendorCode
                 };
                 appDBContent.OrderDetail.Add(orderDetail);

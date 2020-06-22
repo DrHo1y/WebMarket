@@ -13,7 +13,7 @@ namespace WebMarket.Data
         {
             Database.EnsureCreated();
         }
-        public DbSet<Basket> Basket { set; get; }
+        //public DbSet<Basket> Basket { set; get; }
         public DbSet<GraphicalCard> GPU { set; get; }
         public DbSet<Motherboard> MB { set; get; }
         public DbSet<Processor> CPU { set; get; }

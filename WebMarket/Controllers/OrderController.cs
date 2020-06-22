@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,7 @@ namespace WebMarket.Controllers
     {
         private readonly IAllOrders allOrders;
         private readonly Basket basket;
+        public static IServiceProvider Services;
 
         public OrderController(IAllOrders allOrders, Basket basket)
         {
@@ -35,14 +38,14 @@ namespace WebMarket.Controllers
             if(ModelState.IsValid)
             {
                 allOrders.CreateOrder(order);
-                return RedirectToAction("Complete");
+                return RedirectToAction("Complite");
             }
             return View(order);
         }
 
         public IActionResult Complite()
         {
-            ViewBag.Messoge("Готово");
+            ViewBag.Message = "Готово";
             return View();
         }
     }
